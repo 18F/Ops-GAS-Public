@@ -1,0 +1,6 @@
+# Byte-compiled
+__pycache__/
+
+# Convert stuff from GS JSON output
+*.json
+convert.py
