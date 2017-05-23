@@ -72,6 +72,11 @@ function getTestStatus(){
   return CacheService.getScriptCache().get('test_status')
 }
 
+function clearTestReport(){
+  CacheService.getScriptCache().remove('test_status')
+  CacheService.getScriptCache().remove('test_report')
+}
+
 function displayTestReport(){
   var status = getTestStatus()
   var report = getTestReport()

@@ -18,7 +18,7 @@ function updateDataSourcesAndRefreshAllSheets(){
   Logger.log('updateFloatVersusTock, ' + new Date().getTime())
   updateFloatVersusTock()
   Logger.log('refreshFromData tock, ' + new Date().getTime())
-  refreshFromData(1221129725, 'tock')
+  refreshFromData(0, 'tock')
   Logger.log('refreshFromData roster, ' + new Date().getTime())
   refreshFromData(631505845, 'roster')
   Logger.log('refreshFromData float, ' + new Date().getTime())
@@ -27,8 +27,8 @@ function updateDataSourcesAndRefreshAllSheets(){
   dashboard_sheet.clearContents()
   dashboard_sheet.getRange(1,1,dashboard_sheet.getMaxRows(),dashboard_sheet.getMaxColumns()).setValues(dashboard_formulas)
   dashboard_sheet.getRange(1,7).setValue('=TEXT(SUMIF(\'Float, By Period (Billable Hours)\'!A:A,">"&B1,\'Float, By Period (Billable Hours)\'!B:B)*B2,"$0,00")')
-  dashboard_sheet.getRange(1,1).setNote('Latest execution time:\n ' + Math.round((new Date().getTime() - s)/1000/60) + ' minutes.' +
-    '\n\n Completed at:\n' + new Date())
+  dashboard_sheet.getRange(1,1).setNote('Latest execution time:\n' + Math.round((new Date().getTime() - s)/1000/60) + ' minutes.' +
+    '\n\nCompleted at:\n' + new Date())
 }
 
 function refreshFromData(data_sheet_id, name){
