@@ -19,6 +19,8 @@ function updateDataSourcesAndRefreshAllSheets(){
   updateFloatVersusTock()
   Logger.log('refreshFromData tock, ' + new Date().getTime())
   refreshFromData(0, 'tock')
+  Logger.log('refreshFromData floattock' + new Date().getTime())
+  refreshFromData(1221129725, 'floattock')
   Logger.log('refreshFromData roster, ' + new Date().getTime())
   refreshFromData(631505845, 'roster')
   Logger.log('refreshFromData float, ' + new Date().getTime())
