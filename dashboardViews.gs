@@ -14,7 +14,7 @@ function test_t(){
 }
 */
 
-function _tock_updateFloatVTockByPeriodByProjectHours(timecards){
+function _floattock_updateFloatVTockByPeriodByProjectHours(timecards){
   var sheet = getSheetById(SpreadsheetApp.openById(ACTIVE_WORKBOOK), 1463314933)
   var x = 'start_date'
   var y = 'project_name'
@@ -30,7 +30,7 @@ function _tock_updateFloatVTockByPeriodByProjectHours(timecards){
   return timecards
 }
 
-function _tock_updateFloatVTockByPeriodByPersonHours(timecards){
+function _floattock_updateFloatVTockByPeriodByPersonHours(timecards){
   var sheet = getSheetById(SpreadsheetApp.openById(ACTIVE_WORKBOOK), 866138618)
   var x = 'start_date'
   var y = 'user'
@@ -45,7 +45,7 @@ function _tock_updateFloatVTockByPeriodByPersonHours(timecards){
   return timecards
 }
 
-function _tock_updateFloatVTockByPeriodByTeamHours(timecards){
+function _floattock_updateFloatVTockByPeriodByTeamHours(timecards){
   var sheet = getSheetById(SpreadsheetApp.openById(ACTIVE_WORKBOOK), 1723363751)
   var x = 'start_date'
   var y = 'team'
