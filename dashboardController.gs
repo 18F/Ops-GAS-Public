@@ -50,3 +50,19 @@ function refreshFromData(data_sheet_id, name){
   }
 }
 
+function updatePublicDash(){
+    if (CacheService.getScriptCache().get('test_status') !== '0'){
+    return null
+  }
+  if (updateStatus() == 'true'){
+    return updateStart()
+  }
+  var data = getSheetById(SpreadsheetApp.openById(ACTIVE_WORKBOOK), DASHBOARD_SHEET_ID)
+  .getRange(PUB_DASH_RANGE)
+  .getValues() 
+  
+  var dest_range = getSheetById(SpreadsheetApp.openById(PUB_DASH_WB), PUB_DASH_SHEET)
+  .clearContents()
+  .getRange(1,1,data.length, data[0].length)
+  .setValues(data)  
+} 
