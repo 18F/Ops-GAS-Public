@@ -12,6 +12,7 @@ function makeMenus(){
     var menu = ui.createMenu('Management')
     menu.addItem('Full update', 'updateDataSourcesAndRefreshAllSheets')
     menu.addItem('Check truants', 'getLatestTruants')
+    menu.addItem('Update public dashboard', 'updatePublicDash')
     menu.addSeparator()
     var dev_tools_menu = ui.createMenu('Developer tools')
     dev_tools_menu.addItem('View test report', 'displayTestReport')
