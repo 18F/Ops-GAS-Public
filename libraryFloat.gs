@@ -51,6 +51,7 @@ function addTockDataToTasks(tasks){
     tasks[i].tock_id = null
     tasks[i].tock_user = null
     tasks[i].tock_billable = null
+    tasks[i].tock_project_name = null
     for (p=0; p<projects.length; p++){
       if (tasks[i].project_id == projects[p].project_id){
         for (t=0; t<projects[p].tags.length; t++){
@@ -59,6 +60,7 @@ function addTockDataToTasks(tasks){
             for (tp=0; tp<tock_project_info.length; tp++){
               if (tock_project_info[tp].id == tasks[i].tock_id){
                 tasks[i].tock_billable = tock_project_info[tp].billable
+                tasks[i].tock_project_name = tock_project_info[tp].name
               }
             }
           }
@@ -71,6 +73,10 @@ function addTockDataToTasks(tasks){
       }
     }
   }
+  tasks = doFilter(tasks, {tock_project_name: 'TTS Acq'})
+  tasks = doFilter(tasks, {tock_project_name: 'Acquisition Services'})
+  tasks = doFilter(tasks, {tock_project_name: 'Federalist'})
+  tasks = doFilter(tasks, {tock_project_name: 'PIF'})
   return tasks
 }
 
