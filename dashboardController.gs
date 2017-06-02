@@ -27,10 +27,15 @@ function updateDataSourcesAndRefreshAllSheets(){
   refreshFromData(1029809414, 'float')
   Logger.log('clean up, ' + new Date().getTime())
   dashboard_sheet.clearContents()
-  dashboard_sheet.getRange(1,1,dashboard_sheet.getMaxRows(),dashboard_sheet.getMaxColumns()).setValues(dashboard_formulas)
-  dashboard_sheet.getRange(1,7).setValue('=TEXT(SUMIF(\'Float, By Period (Billable Hours)\'!A:A,">"&B1,\'Float, By Period (Billable Hours)\'!B:B)*B2,"$0,00")')
-  dashboard_sheet.getRange(1,1).setNote('Latest execution time:\n' + Math.round((new Date().getTime() - s)/1000/60) + ' minutes.' +
+  dashboard_sheet.getRange(1,1,dashboard_sheet.getMaxRows(),dashboard_sheet.getMaxColumns())
+  .setValues(dashboard_formulas)
+  dashboard_sheet.getRange(1,7)
+  .setValue('=TEXT(SUMIF(\'Float, By Period (Billable Hours)\'!A:A,">"&B1,\'Float, By Period (Billable Hours)\'!B:B)*B2,"$0,00")')
+  dashboard_sheet.getRange(1,1)
+  .setNote('Latest execution time:\n' + Math.round((new Date().getTime() - s)/1000/60) + ' minutes.' +
     '\n\nCompleted at:\n' + new Date())
+    // Send updated info to public dash.
+    updatePublicDash()   
 }
 
 function refreshFromData(data_sheet_id, name){
